@@ -45,3 +45,7 @@ export class PaymentsStatistic extends Map {
     }
   }
 }
+
+export function formatDate(date) {
+  return `${date.slice(6)}.${date.slice(4, 6)}.${date.slice(0, 4)}`
+}

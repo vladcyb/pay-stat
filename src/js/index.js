@@ -7,6 +7,7 @@ import {
   createTableCell,
   createTableHeadCell,
   createTableRow,
+  formatDate,
   PaymentsStatistic,
 } from './lib.js'
 
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /**
    * Add payment item to a table
    * @param {HTMLTableElement} table
-   * @param {{date: string, name: string, category: number, value: number}} payment
+   * @param {{name: string, category: number, value: number}} payment
    */
   function addPayment(table, payment) {
     const row = createTableRow()
@@ -83,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
   for (let [date, list] of Object.entries(payments)) {
     const dayRoot = createDiv('day')
     const dateTitleDiv = createDiv('day__header')
-    dateTitleDiv.innerText = date
+    dateTitleDiv.innerText = formatDate(date)
     dayRoot.append(dateTitleDiv)
 
     const dayContent = createDiv('day__content')
@@ -91,11 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const dayPaymentsTable = createTable(dayTableClassName)
     addTableHead(dayPaymentsTable, dayTableClassName)
 
-    const dayMap = new PaymentsStatistic()
+    const dayStatistic = new PaymentsStatistic()
 
     for (let payment of list) {
       addPayment(dayPaymentsTable, payment)
-      dayMap.add(payment.category, payment.value)
+      dayStatistic.add(payment.category, payment.value)
       statistic.add(payment.category, payment.value)
     }
 
@@ -103,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const statisticsContainer = createDiv('day__statistics')
 
-    addStatistic(statisticsContainer, dayMap)
+    addStatistic(statisticsContainer, dayStatistic)
     dayRoot.append(dayContent, statisticsContainer)
     container.append(dayRoot)
   }

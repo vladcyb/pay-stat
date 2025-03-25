@@ -1,6 +1,5 @@
 .day {
   padding-bottom: 20px;
-  /*border-bottom: 1px solid var(--c-secondary);*/
 }
 
 .day__statistics {
@@ -10,7 +9,9 @@
 .day__header {
   padding: 20px;
   text-align: center;
-  border-bottom: 1px solid var(--c-secondary);
+  border-style: solid;
+  border-color: var(--c-secondary);
+  border-width: 1px 0;
   color: var(--c-secondary);
 }
 

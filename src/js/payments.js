@@ -1,58 +1,55 @@
 import {categories} from './categories.js'
 
 export const payments = {
-  '2025-03-01': [
+  '20250302': [
     {
       name: 'пиво',
       category: categories.alcohol,
       value: 87,
-      date: '2025-03-25',
     },
     {
       name: 'шоколадка',
       category: categories.sweets,
       value: 100,
-      date: '2025-03-25',
     },
     {
       name: 'бургер',
       category: categories.fastfood,
       value: 300,
-      date: '2025-03-25',
     },
     {
       name: 'стрипсы',
       category: categories.fastfood,
       value: 100,
-      date: '2025-03-25',
     },
   ],
-  '2025-03-15': [
+  '20250301': [
     {
       name: 'бургер',
       category: categories.fastfood,
       value: 300,
-      date: '2025-03-25',
+    },
+    {
+      name: 'чай',
+      category: categories.food,
+      value: 400,
     },
     {
       name: 'бургер',
       category: categories.fastfood,
       value: 400,
-      date: '2025-03-25',
     },
   ],
-  '2025-03-30': [
+  '20250303': [
     {
-      name: 'бургер',
+      name: 'бургер бургер бургер бургер бургер',
       category: categories.fastfood,
       value: 300,
-      date: '2025-03-25',
     },
     {
       name: 'бургер',
       category: categories.fastfood,
       value: 400,
-      date: '2025-03-25',
     },
   ],
 }
