@@ -1,21 +1,31 @@
 import {payments} from './payments.js'
 import {categoryRussian} from './categories.js'
-import {$, createDiv, createTable, createTableCell, createTableRow, DayMap} from './lib.js'
+import {
+  $,
+  createDiv,
+  createTable,
+  createTableCell,
+  createTableHeadCell,
+  createTableRow,
+  PaymentsStatistic,
+} from './lib.js'
 
 
 document.addEventListener('DOMContentLoaded', () => {
-
-
   const root = $('#root')
+  const container = createDiv('container')
+  root.append(container)
+  const statistic = new PaymentsStatistic()
 
   /**
    * Add head to a table
    * @param {HTMLTableElement} table
+   * @param {string} tableClassName
    */
-  function addTableHead(table) {
-    const row = createTableRow()
+  function addTableHead(table, tableClassName) {
+    const row = createTableRow(`${tableClassName}__tr`)
     ;['Наименование', 'Стоимость', 'Категория'].forEach(text => {
-      const cell = createTableCell(true)
+      const cell = createTableHeadCell(`${tableClassName}__th`)
       cell.innerText = text
       row.append(cell)
     })
@@ -40,13 +50,15 @@ document.addEventListener('DOMContentLoaded', () => {
     table.append(row)
   }
 
-  function addDayStatistics(appendTarget, dayMap) {
-    const statisticsContainer = createDiv()
+  /**
+   * @param {HTMLElement} targ
+   * @param {PaymentsStatistic} statistic
+   */
+  function addStatistic(targ, statistic) {
     const statTable = createTable()
-    statisticsContainer.className = 'day__statistics'
     let dayTotal = 0
 
-    dayMap.entries().forEach(([category, value]) => {
+    statistic.entries().forEach(([category, value]) => {
       dayTotal += value
 
       const categoryItem = createTableRow()
@@ -65,34 +77,34 @@ document.addEventListener('DOMContentLoaded', () => {
     totalValueCell.innerText = dayTotal
     totalRow.append(totalNameCell, totalValueCell)
     statTable.append(totalRow)
-
-    statisticsContainer.append(statTable)
-    appendTarget.append(statisticsContainer)
+    targ.append(statTable)
   }
 
-
   for (let [date, list] of Object.entries(payments)) {
-    const dayRoot = createDiv()
-    const dateTitleDiv = createDiv()
+    const dayRoot = createDiv('day')
+    const dateTitleDiv = createDiv('day__header')
     dateTitleDiv.innerText = date
-    dateTitleDiv.className = 'day__header'
     dayRoot.append(dateTitleDiv)
-    dayRoot.className = 'day'
 
-    const dayContent = createDiv()
-    dayContent.className = 'day__content'
-    const dayPaymentsTable = createTable()
-    addTableHead(dayPaymentsTable)
+    const dayContent = createDiv('day__content')
+    const dayTableClassName = 'dayTable'
+    const dayPaymentsTable = createTable(dayTableClassName)
+    addTableHead(dayPaymentsTable, dayTableClassName)
 
-    const dayMap = new DayMap()
+    const dayMap = new PaymentsStatistic()
 
     for (let payment of list) {
       addPayment(dayPaymentsTable, payment)
       dayMap.add(payment.category, payment.value)
+      statistic.add(payment.category, payment.value)
     }
+
     dayContent.append(dayPaymentsTable)
-    dayRoot.append(dayContent)
-    addDayStatistics(dayContent, dayMap)
-    root.append(dayRoot)
+
+    const statisticsContainer = createDiv('day__statistics')
+
+    addStatistic(statisticsContainer, dayMap)
+    dayRoot.append(dayContent, statisticsContainer)
+    container.append(dayRoot)
   }
 })

@@ -1,7 +1,7 @@
 import {categories} from './categories.js'
 
 export const payments = {
-  '2025-03-1': [
+  '2025-03-01': [
     {
       name: 'пиво',
       category: categories.alcohol,
