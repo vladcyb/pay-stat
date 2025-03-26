@@ -1,5 +1,5 @@
-import {payments} from './payments.js'
-import {categoryRussian} from './categories.js'
+import { payments } from './payments.js'
+import { categoryRussian } from './categories.js'
 import {
   $,
   createDiv,
@@ -10,7 +10,6 @@ import {
   formatDate,
   PaymentsStatistic,
 } from './lib.js'
-
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = $('#root')
@@ -25,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   function addTableHead(table, tableClassName) {
     const row = createTableRow(`${tableClassName}__tr`)
-    ;['Наименование', 'Стоимость', 'Категория'].forEach(text => {
+    ;['Наименование', 'Стоимость', 'Категория'].forEach((text) => {
       const cell = createTableHeadCell(`${tableClassName}__th`)
       cell.innerText = text
       row.append(cell)
