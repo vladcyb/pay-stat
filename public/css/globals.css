@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -6,6 +8,7 @@
 
 :root {
   --c-secondary: #aaa;
+  --c-selection: #c3ffc9;
 }
 
 body {
@@ -21,7 +24,8 @@ table {
   border-collapse: collapse;
 }
 
-td, th {
+td,
+th {
   border: 1px solid var(--c-secondary);
   padding: 15px 30px;
   text-align: left;
