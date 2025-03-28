@@ -1,0 +1,181 @@
+{
+  "20250301": [
+    {
+      "name": "Стрижка у Cristophe (Мэдисон-авеню)",
+      "category": 16,
+      "value": 400
+    },
+    {
+      "name": "Костюм от Hugo Boss (угольно-серый)",
+      "category": 12,
+      "value": 2800
+    },
+    {
+      "name": "Визитка с bone lettering (50 шт.)",
+      "category": 16,
+      "value": 850
+    },
+    {
+      "name": "Ужин в Dorsia (стейк тартар, утиная конфи)",
+      "category": 5,
+      "value": 350
+    },
+    { "name": "Бутылка Dom Pérignon 1982", "category": 4, "value": 1200 },
+    { "name": "Чистка кожаных перчаток", "category": 12, "value": 150 },
+    {
+      "name": "Новый виниловый диск \"Huey Lewis and the News\"",
+      "category": 10,
+      "value": 75
+    },
+    {
+      "name": "Салфетки для удаления пятен крови (премиум)",
+      "category": 9,
+      "value": 120
+    }
+  ],
+  "20250302": [
+    { "name": "Бритва Philips (новейшая модель)", "category": 9, "value": 350 },
+    {
+      "name": "Набор уходовой косметики для мужчин (Clinique)",
+      "category": 15,
+      "value": 600
+    },
+    {
+      "name": "Абонемент в тренажерный зал (премиум)",
+      "category": 14,
+      "value": 1200
+    },
+    {
+      "name": "Обед в Dorsia (лосось на кедровой доске)",
+      "category": 5,
+      "value": 280
+    },
+    {
+      "name": "Бутылка Château Lafite Rothschild",
+      "category": 4,
+      "value": 2500
+    },
+    { "name": "Чистка бритвенного набора", "category": 9, "value": 200 }
+  ],
+  "20250303": [
+    { "name": "Новые оксфорды от Allen Edmonds", "category": 12, "value": 800 },
+    {
+      "name": "Галстук от Valentino (шелк, ручная работа)",
+      "category": 12,
+      "value": 450
+    },
+    { "name": "Фирменный кожаный ремень", "category": 12, "value": 600 },
+    {
+      "name": "Ужин в Dorsia (фуа-гра, трюфельная паста)",
+      "category": 5,
+      "value": 420
+    },
+    { "name": "Бутылка Macallan 25 лет", "category": 4, "value": 1800 },
+    {
+      "name": "Чистка костюма (химчистка премиум)",
+      "category": 12,
+      "value": 180
+    }
+  ],
+  "20250304": [
+    {
+      "name": "Новые карманные платки (набор 6 шт.)",
+      "category": 12,
+      "value": 550
+    },
+    { "name": "Замена лезвий в бритве", "category": 9, "value": 120 },
+    {
+      "name": "Обед в Four Seasons (стейк medium rare)",
+      "category": 5,
+      "value": 320
+    },
+    { "name": "Бутылка Cristal Brut", "category": 4, "value": 950 },
+    { "name": "Чистка кожаного портфеля", "category": 12, "value": 250 }
+  ],
+  "20250305": [
+    {
+      "name": "Новые солнцезащитные очки Ray-Ban",
+      "category": 12,
+      "value": 400
+    },
+    { "name": "Вечерний костюм от Armani", "category": 12, "value": 3500 },
+    { "name": "Ужин в Dorsia (лобстер термидор)", "category": 5, "value": 380 },
+    { "name": "Бутылка Hennessy Paradis", "category": 4, "value": 3000 },
+    {
+      "name": "Билеты в оперу \"Мадам Баттерфляй\"",
+      "category": 10,
+      "value": 1200
+    }
+  ],
+  "20250306": [
+    { "name": "Массаж в спа-салоне (премиум)", "category": 15, "value": 500 },
+    { "name": "Новые запонки из белого золота", "category": 12, "value": 2200 },
+    {
+      "name": "Обед в Cipriani (устрицы, шампанское)",
+      "category": 5,
+      "value": 450
+    },
+    { "name": "Бутылка Petrus 1989", "category": 4, "value": 4200 },
+    { "name": "Чистка обуви (премиум сервис)", "category": 12, "value": 100 }
+  ],
+  "20250307": [
+    { "name": "Новые перчатки из кожи ягненка", "category": 12, "value": 700 },
+    { "name": "Фирменный блокнот Smythson", "category": 16, "value": 350 },
+    {
+      "name": "Ужин в Dorsia (утиная грудка с вишней)",
+      "category": 5,
+      "value": 360
+    },
+    { "name": "Бутылка Krug Clos du Mesnil", "category": 4, "value": 2800 },
+    { "name": "Чистка бритвенных принадлежностей", "category": 9, "value": 180 }
+  ],
+  "20250308": [
+    {
+      "name": "Новые носки из египетского хлопка (12 пар)",
+      "category": 12,
+      "value": 600
+    },
+    { "name": "Обед в Nobu (суши-сет премиум)", "category": 5, "value": 380 },
+    { "name": "Бутылка Opus One 2015", "category": 4, "value": 950 },
+    {
+      "name": "Чистка костюма (химчистка премиум)",
+      "category": 12,
+      "value": 180
+    },
+    { "name": "Новый виниловый диск \"Genesis\"", "category": 10, "value": 80 }
+  ],
+  "20250309": [
+    { "name": "Новые подтяжки от Ralph Lauren", "category": 12, "value": 300 },
+    {
+      "name": "Ужин в Dorsia (телячий мозг, трюфели)",
+      "category": 5,
+      "value": 400
+    },
+    { "name": "Бутылка Romanée-Conti 1990", "category": 4, "value": 15000 },
+    { "name": "Чистка кожаных аксессуаров", "category": 12, "value": 220 },
+    { "name": "Нож для стейка Damascus Steel", "category": 9, "value": 800 }
+  ],
+  "20250310": [
+    {
+      "name": "Новые карманные часы Patek Philippe",
+      "category": 16,
+      "value": 25000
+    },
+    {
+      "name": "Обед в Jean-Georges (дегустационное меню)",
+      "category": 5,
+      "value": 600
+    },
+    {
+      "name": "Бутылка Screaming Eagle Cabernet",
+      "category": 4,
+      "value": 8500
+    },
+    { "name": "Чистка бритвенных лезвий", "category": 9, "value": 150 },
+    {
+      "name": "Новый виниловый диск \"Whitney Houston\"",
+      "category": 10,
+      "value": 75
+    }
+  ]
+}

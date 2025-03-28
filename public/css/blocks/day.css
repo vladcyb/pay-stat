@@ -12,7 +12,7 @@
   border-style: solid;
   border-color: var(--c-secondary);
   border-width: 1px 0;
-  color: var(--c-secondary);
+  color: var(--c-dark);
 }
 
 .day__content {

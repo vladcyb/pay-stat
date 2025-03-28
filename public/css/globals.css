@@ -8,6 +8,7 @@
 
 :root {
   --c-secondary: #aaa;
+  --c-dark: #333;
   --c-selection: #c3ffc9;
 }
 
@@ -17,6 +18,31 @@ body {
 
 #root {
   padding: 20px;
+}
+
+.initial-message {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: var(--c-dark);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+#drop-zone {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+#drop-zone.dragover {
+  opacity: 0;
 }
 
 table {
