@@ -1,4 +1,4 @@
-import { $, createDiv, validatePayments } from './lib.js'
+import { $, createDiv, validatePaymentsFile } from './lib.js'
 import { DayView } from './models/DayView.js'
 import { TotalStatisticsView } from './models/TotalStatisticsView.js'
 import { PaymentsStatistics } from './models/PaymentsStatistics.js'
@@ -15,7 +15,7 @@ function handleFileDrop(event) {
   reader.onload = (e) => {
     try {
       allPayments = JSON.parse(e.target.result)
-      validatePayments(allPayments)
+      validatePaymentsFile(allPayments)
       renderPayments(allPayments)
     } catch (error) {
       alert(
