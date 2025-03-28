@@ -8,12 +8,16 @@
   "type": "commonjs",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "lint": "eslint public"
   },
   "dependencies": {
     "express": "^4.21.2"
   },
   "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "eslint": "^9.23.0",
+    "globals": "^16.0.0",
     "prettier": "^3.5.3"
   }
 }

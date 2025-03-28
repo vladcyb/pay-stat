@@ -70,8 +70,6 @@ function renderPayments(payments) {
 
 // Initialize event listeners when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-  const dropZone = $('#drop-zone')
-
   // Add drag and drop handlers to the entire document
   document.addEventListener('dragover', handleDragOver)
   document.addEventListener('dragleave', handleDragLeave)
