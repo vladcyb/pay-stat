@@ -1,0 +1,12 @@
+.totalStatistics {
+  margin-bottom: 40px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.totalStatistics__title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}

@@ -1,21 +1,23 @@
-import { payments } from './payments.js'
-import { $, createDiv, PaymentsStatistic } from './lib.js'
+import { payments as allPayments } from './payments.js'
+import { $, createDiv } from './lib.js'
 import { DayView } from './models/DayView.js'
+import { TotalStatisticsView } from './models/TotalStatisticsView.js'
+import { PaymentsStatistics } from './models/PaymentsStatistics.js'
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = $('#root')
   const container = createDiv('container')
   root.append(container)
-  const totalStatistic = new PaymentsStatistic()
+  const totalStatistic = new PaymentsStatistics(allPayments)
 
-  Object.entries(payments).forEach(([date, paymentsList]) => {
-    const dayStatistic = new PaymentsStatistic()
-    paymentsList.forEach((payment) => {
-      dayStatistic.add(payment.category, payment.value)
-      totalStatistic.add(payment.category, payment.value)
-    })
+  // Display total statistics at the top
+  const totalStatisticsView = new TotalStatisticsView(totalStatistic)
+  container.append(totalStatisticsView.render())
 
-    const dayView = new DayView(date, paymentsList, dayStatistic)
+  // Display daily statistics
+  Object.entries(allPayments).forEach(([date, dayPayments]) => {
+    const dayStatistics = new PaymentsStatistics(dayPayments)
+    const dayView = new DayView(date, dayPayments, dayStatistics)
     container.append(dayView.render())
   })
 })

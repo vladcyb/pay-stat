@@ -32,20 +32,6 @@ export function createDiv(className) {
   return createElement('div', className)
 }
 
-export class PaymentsStatistic extends Map {
-  constructor() {
-    super()
-  }
-
-  add(key, value) {
-    if (this.has(key)) {
-      this.set(key, this.get(key) + value)
-    } else {
-      this.set(key, value)
-    }
-  }
-}
-
 export function formatDate(date) {
   return `${date.slice(6)}.${date.slice(4, 6)}.${date.slice(0, 4)}`
 }
