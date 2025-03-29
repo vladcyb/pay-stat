@@ -1,0 +1,12 @@
+.initialMessage {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: var(--c-dark);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.initialMessage_hidden {
+  display: none;
+}

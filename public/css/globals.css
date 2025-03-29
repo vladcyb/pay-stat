@@ -20,15 +20,6 @@ body {
   padding: 20px;
 }
 
-.initial-message {
-  text-align: center;
-  padding: 40px;
-  font-size: 18px;
-  color: var(--c-dark);
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
 #drop-zone {
   position: fixed;
   top: 0;
