@@ -9,7 +9,8 @@ export class GuideView {
   render() {
     const container = createDiv(this.#className)
     container.innerHTML = `
-    <h2>Формат файла</h2>
+    <h1>Анализ расходов</h1>
+    <h2>Формат входного файла</h2>
         <p>Файл должен быть в формате JSON со следующей структурой:</p>
         <pre class="format-example">
 {

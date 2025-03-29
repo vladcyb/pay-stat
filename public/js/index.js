@@ -12,16 +12,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize data loader
   new DataLoader()
-
-  // Add file input handler
-  // const fileInput = $('#file-input')
-  // fileInput.addEventListener('change', handleFileInput)
-
-  // Add JSON submit handler
-  // const submitButton = $('#submit-json')
-  // submitButton.addEventListener('click', handleJsonSubmit)
-
-  document
-    .getElementById('initialMessage')
-    .classList.remove('initialMessage_hidden')
 })

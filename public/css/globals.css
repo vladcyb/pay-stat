@@ -10,6 +10,7 @@
   --c-secondary: #aaa;
   --c-dark: #333;
   --c-selection: #c3ffc9;
+  --c-dark-blue: #2c3e50;
 }
 
 body {
@@ -17,7 +18,7 @@ body {
 }
 
 #root {
-  padding: 20px;
+  padding: 20px 20px 100px 20px;
 }
 
 #drop-zone {
@@ -46,4 +47,21 @@ th {
   border: 1px solid var(--c-secondary);
   padding: 15px 30px;
   text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--c-dark-blue);
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.file-input-label {
+  margin-bottom: 0.5rem;
 }

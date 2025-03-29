@@ -3,7 +3,6 @@
 @import './blocks/container.css';
 @import './blocks/totalStatistics.css';
 @import './blocks/dailyStatisticsTitle.css';
-@import './blocks/initialMessage.css';
 @import './blocks/page.css';
 @import './blocks/statisticsContainer.css';
 
@@ -74,7 +73,7 @@
 
 .guide h2 {
   margin-top: 0;
-  color: #2c3e50;
+  color: var(--c-dark-blue);
 }
 
 .guide p {
@@ -83,7 +82,7 @@
 }
 
 .format-example {
-  background-color: #2c3e50;
+  background-color: var(--c-dark-blue);
   color: #ecf0f1;
   padding: 1rem;
   border-radius: 4px;
@@ -117,7 +116,7 @@
 }
 
 .format-notes h3 {
-  color: #2c3e50;
+  color: var(--c-dark-blue);
   margin-bottom: 0.5rem;
 }
 
@@ -143,4 +142,16 @@
 
 .d-none {
   display: none;
+}
+
+table {
+  /* margin: 0 auto; */
+}
+
+h1 {
+  border-bottom: 1px solid #000;
+}
+
+.text-center {
+  text-align: center;
 }

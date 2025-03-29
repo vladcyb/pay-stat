@@ -17,7 +17,13 @@
         <div class="container" id="format-guide"></div>
         <div class="container" id="categories-guide"></div>
         <div class="container">
-          <div class="file-input-wrapper">
+          <div class="text-center">
+            <strong
+              >Перетащите JSON файл с данными в любое место на странице</strong
+            >
+          </div>
+          <div class="page__or">или</div>
+          <div class="file-input-wrapper text-center">
             <input
               type="file"
               id="file-input"
@@ -28,20 +34,20 @@
               >Выбрать файл</label
             >
           </div>
+          <div class="page__or">или</div>
           <div class="text-input-wrapper">
             <textarea
               id="json-input"
               placeholder="Вставьте JSON данные сюда..."
               class="json-input"
+              rows="20"
             ></textarea>
             <button id="submit-json" class="submit-button">Отправить</button>
           </div>
         </div>
       </div>
       <div id="drop-zone"></div>
-      <div id="initialMessage" class="initialMessage initialMessage_hidden">
-        Перетащите JSON файл с данными в любое место на странице
-      </div>
+
       <div class="statisticsContainer" id="statisticsContainer"></div>
     </div>
   </body>

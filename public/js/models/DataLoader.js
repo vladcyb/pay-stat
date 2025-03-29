@@ -103,12 +103,6 @@ export class DataLoader {
       container.append(dayView.render())
     })
 
-    // Hide the initial message if we have payments
-    const initialMessage = $('#initialMessage')
-    if (initialMessage) {
-      initialMessage.classList.add('initialMessage_hidden')
-    }
-
     // Clear statistics container and append new content
     statisticsContainer.innerHTML = ''
     statisticsContainer.append(container)

@@ -2,6 +2,7 @@
   text-align: center;
   font-size: 1.5rem;
   color: var(--c-secondary);
+  margin: 20px 0;
 }
 
 .page__file-btn-wrapper {
