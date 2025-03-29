@@ -2,6 +2,7 @@ import { $, createDiv, createElement, validatePaymentsFile } from './lib.js'
 import { DayView } from './models/DayView.js'
 import { TotalStatisticsView } from './models/TotalStatisticsView.js'
 import { PaymentsStatistics } from './models/PaymentsStatistics.js'
+import { GuideView } from './models/GuideView.js'
 
 // Store all payments data
 let fileContent = null
@@ -55,23 +56,11 @@ function handleDragLeave(event) {
 }
 
 function renderPayments(fileContent) {
-  const root = $('#root')
-  // Keep the drop zone
-  const dropZone = $('#drop-zone')
-  root.innerHTML = ''
-  root.append(dropZone)
-
+  const statisticsContainer = $('#statistics-container')
   const { payments, title } = fileContent
 
+  // Create container for statistics
   const container = createDiv('container')
-  root.append(container)
-
-  // Hide the initial message if we have payments
-  const initialMessage = $('#initial-message')
-  if (initialMessage) {
-    initialMessage.style.display =
-      Object.keys(payments).length > 0 ? 'none' : 'block'
-  }
 
   const totalStatistic = new PaymentsStatistics(payments)
 
@@ -90,6 +79,16 @@ function renderPayments(fileContent) {
     const dayView = new DayView(date, dayPayments, dayStatistics)
     container.append(dayView.render())
   })
+
+  // Hide the initial message if we have payments
+  const initialMessage = $('#initialMessage')
+  if (initialMessage) {
+    initialMessage.classList.add('initialMessage_hidden')
+  }
+
+  // Clear statistics container and append new content
+  statisticsContainer.innerHTML = ''
+  statisticsContainer.append(container)
 }
 
 // Initialize event listeners when DOM is loaded
@@ -98,6 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('dragover', handleDragOver)
   document.addEventListener('dragleave', handleDragLeave)
   document.addEventListener('drop', handleFileDrop)
+
+  document.querySelector('#format-guide').append(new GuideView().render())
 
   // Add file input handler
   const fileInput = $('#file-input')

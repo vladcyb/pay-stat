@@ -1,0 +1,9 @@
+.page__or {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--c-secondary);
+}
+
+.page__file-btn-wrapper {
+  text-align: center;
+}
