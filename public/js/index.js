@@ -1,10 +1,10 @@
-import { $, createDiv, validatePaymentsFile } from './lib.js'
+import { $, createDiv, createElement, validatePaymentsFile } from './lib.js'
 import { DayView } from './models/DayView.js'
 import { TotalStatisticsView } from './models/TotalStatisticsView.js'
 import { PaymentsStatistics } from './models/PaymentsStatistics.js'
 
 // Store all payments data
-let allPayments = {}
+let fileContent = null
 
 function handleFileDrop(event) {
   event.preventDefault()
@@ -14,9 +14,9 @@ function handleFileDrop(event) {
   const reader = new FileReader()
   reader.onload = (e) => {
     try {
-      allPayments = JSON.parse(e.target.result)
-      validatePaymentsFile(allPayments)
-      renderPayments(allPayments)
+      fileContent = JSON.parse(e.target.result)
+      validatePaymentsFile(fileContent)
+      renderPayments(fileContent)
     } catch (error) {
       alert(
         error.message ||
@@ -35,12 +35,14 @@ function handleDragLeave(event) {
   event.preventDefault()
 }
 
-function renderPayments(payments) {
+function renderPayments(fileContent) {
   const root = $('#root')
   // Keep the drop zone
   const dropZone = $('#drop-zone')
   root.innerHTML = ''
   root.append(dropZone)
+
+  const { payments, title } = fileContent
 
   const container = createDiv('container')
   root.append(container)
@@ -55,17 +57,20 @@ function renderPayments(payments) {
   const totalStatistic = new PaymentsStatistics(payments)
 
   // Display total statistics at the top
-  const totalStatisticsView = new TotalStatisticsView(totalStatistic)
+  const totalStatisticsView = new TotalStatisticsView(title, totalStatistic)
   container.append(totalStatisticsView.render())
 
+  const dailyStatisticsTitle = createElement('h2', 'dailyStatisticsTitle')
+  dailyStatisticsTitle.innerText = 'Статистика по дням'
+  container.append(dailyStatisticsTitle)
+
   // Display daily statistics
-  Object.entries(payments)
-    .sort(([dateA], [dateB]) => new Date(dateB) - new Date(dateA))
-    .forEach(([date, dayPayments]) => {
-      const dayStatistics = new PaymentsStatistics(dayPayments)
-      const dayView = new DayView(date, dayPayments, dayStatistics)
-      container.append(dayView.render())
-    })
+  Object.entries(payments).forEach(([date, dayPayments]) => {
+    const dayStatistics = new PaymentsStatistics(dayPayments)
+
+    const dayView = new DayView(date, dayPayments, dayStatistics)
+    container.append(dayView.render())
+  })
 }
 
 // Initialize event listeners when DOM is loaded

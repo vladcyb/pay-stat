@@ -2,7 +2,7 @@ export function $(selector) {
   return document.querySelector(selector)
 }
 
-function createElement(tagName, className) {
+export function createElement(tagName, className) {
   const el = document.createElement(tagName)
 
   if (className) {
@@ -36,12 +36,22 @@ export function formatDate(date) {
   return `${date.slice(6)}.${date.slice(4, 6)}.${date.slice(0, 4)}`
 }
 
-export function validatePaymentsFile(payments) {
-  const fieldTypes = {
+export function validatePaymentsFile(paymentsTextData) {
+  if (typeof paymentsTextData.title !== 'string') {
+    throw new Error(`Поле title должно быть типа 'string'.`)
+  }
+
+  if (typeof paymentsTextData.payments !== 'object') {
+    throw new Error(`Поле 'payments' должно быть типа 'object'.`)
+  }
+
+  const paymentFieldTypes = {
     name: 'string',
     category: 'number',
     value: 'number',
   }
+
+  const { payments } = paymentsTextData
 
   Object.entries(payments).forEach(([date, dayPayments]) => {
     if (!dayPayments || !Array.isArray(dayPayments)) {
@@ -55,7 +65,7 @@ export function validatePaymentsFile(payments) {
         )
       }
 
-      Object.entries(fieldTypes).forEach(([fieldName, fieldType]) => {
+      Object.entries(paymentFieldTypes).forEach(([fieldName, fieldType]) => {
         if (typeof payment[fieldName] !== fieldType) {
           throw new Error(
             `Поле ${fieldName} должно быть ${fieldType}, а не ${typeof payment[fieldName]}.\nДата: ${date}. Индекс: ${index}.`
