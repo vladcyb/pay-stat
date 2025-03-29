@@ -3,6 +3,7 @@ import { DayView } from './models/DayView.js'
 import { TotalStatisticsView } from './models/TotalStatisticsView.js'
 import { PaymentsStatistics } from './models/PaymentsStatistics.js'
 import { GuideView } from './models/GuideView.js'
+import { CategoryMappingView } from './models/CategoryMappingView.js'
 
 // Store all payments data
 let fileContent = null
@@ -98,7 +99,12 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('dragleave', handleDragLeave)
   document.addEventListener('drop', handleFileDrop)
 
-  document.querySelector('#format-guide').append(new GuideView().render())
+  document
+    .querySelector('#format-guide')
+    .append(new GuideView('guide').render())
+  document
+    .querySelector('#categories-guide')
+    .append(new CategoryMappingView().render())
 
   // Add file input handler
   const fileInput = $('#file-input')

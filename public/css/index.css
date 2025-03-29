@@ -6,11 +6,7 @@
 @import './blocks/initialMessage.css';
 @import './blocks/page.css';
 
-.input-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
+.container {
   max-width: 600px;
   margin: 0 auto;
 }
@@ -67,8 +63,7 @@
   background-color: #1976d2;
 }
 
-.guide-section {
-  max-width: 800px;
+.guide {
   margin: 2rem auto;
   padding: 1.5rem;
   background-color: #f8f9fa;
@@ -76,12 +71,12 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.guide-section h2 {
+.guide h2 {
   margin-top: 0;
   color: #2c3e50;
 }
 
-.guide-section p {
+.guide p {
   color: #34495e;
   margin-bottom: 1rem;
 }
@@ -94,6 +89,26 @@
   overflow-x: auto;
   font-family: 'Consolas', 'Monaco', monospace;
   margin: 1rem 0;
+}
+
+.code-key {
+  color: #61afef;
+}
+
+.code-string {
+  color: #98c379;
+}
+
+.code-number {
+  color: #d19a66;
+}
+
+.code-boolean {
+  color: #56b6c2;
+}
+
+.code-null {
+  color: #e06c75;
 }
 
 .format-notes {

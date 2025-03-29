@@ -1,41 +1,41 @@
 import { createDiv } from '../lib.js'
 
 export class GuideView {
+  #className
+  constructor(className) {
+    this.#className = className
+  }
+
   render() {
-    const container = createDiv()
+    const container = createDiv(this.#className)
     container.innerHTML = `
     <h2>Формат файла</h2>
         <p>Файл должен быть в формате JSON со следующей структурой:</p>
-        <pre class="format-example">${JSON.stringify(
-          {
-            title: 'Название отчета',
-            payments: {
-              20240329: [
-                {
-                  category: 1,
-                  value: 100,
-                  name: 'помидоры',
-                },
-                {
-                  category: 2,
-                  value: 400,
-                  name: 'бургер',
-                },
-              ],
-              20240328: [
-                {
-                  category: 7,
-                  value: 500,
-                  name: 'Такси',
-                },
-              ],
-            },
-          },
-          null,
-          2
-        )}
-    
-        </pre>
+        <pre class="format-example">
+{
+  <span class="code-key">"title"</span>: <span class="code-string">"Название отчета"</span>,
+  <span class="code-key">"payments"</span>: {
+    <span class="code-key">"20240329"</span>: [
+      {
+        <span class="code-key">"category"</span>: <span class="code-number">1</span>,
+        <span class="code-key">"value"</span>: <span class="code-number">100</span>,
+        <span class="code-key">"name"</span>: <span class="code-string">"помидоры"</span>
+      },
+      {
+        <span class="code-key">"category"</span>: <span class="code-number">2</span>,
+        <span class="code-key">"value"</span>: <span class="code-number">400</span>,
+        <span class="code-key">"name"</span>: <span class="code-string">"бургер"</span>
+      }
+    ],
+    <span class="code-key">"20240328"</span>: [
+      {
+        <span class="code-key">"category"</span>: <span class="code-number">7</span>,
+        <span class="code-key">"value"</span>: <span class="code-number">500</span>,
+        <span class="code-key">"name"</span>: <span class="code-string">"Такси"</span>
+      }
+    ]
+  }
+}</pre>
         <div class="format-notes">
           <h3>Правила:</h3>
           <ul>
