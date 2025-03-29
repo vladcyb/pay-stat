@@ -20,9 +20,6 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Install Dependencies
-        run: npm install
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
