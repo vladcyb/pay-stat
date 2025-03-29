@@ -6,25 +6,44 @@ import { PaymentsStatistics } from './models/PaymentsStatistics.js'
 // Store all payments data
 let fileContent = null
 
+function handleFileContent(content) {
+  try {
+    fileContent = JSON.parse(content)
+    validatePaymentsFile(fileContent)
+    renderPayments(fileContent)
+  } catch (error) {
+    alert(
+      error.message ||
+        'Ошибка при чтении данных. Убедитесь, что данные содержат корректный JSON.'
+    )
+  }
+}
+
 function handleFileDrop(event) {
   event.preventDefault()
   const file = event.dataTransfer.files[0]
   if (!file) return
 
   const reader = new FileReader()
-  reader.onload = (e) => {
-    try {
-      fileContent = JSON.parse(e.target.result)
-      validatePaymentsFile(fileContent)
-      renderPayments(fileContent)
-    } catch (error) {
-      alert(
-        error.message ||
-          'Ошибка при чтении файла. Убедитесь, что файл содержит корректный JSON.'
-      )
-    }
-  }
+  reader.onload = (e) => handleFileContent(e.target.result)
   reader.readAsText(file)
+}
+
+function handleFileInput(event) {
+  const file = event.target.files[0]
+  if (!file) return
+
+  const reader = new FileReader()
+  reader.onload = (e) => handleFileContent(e.target.result)
+  reader.readAsText(file)
+}
+
+function handleJsonSubmit() {
+  const jsonInput = $('#json-input')
+  const content = jsonInput.value.trim()
+  if (content) {
+    handleFileContent(content)
+  }
 }
 
 function handleDragOver(event) {
@@ -79,6 +98,14 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('dragover', handleDragOver)
   document.addEventListener('dragleave', handleDragLeave)
   document.addEventListener('drop', handleFileDrop)
+
+  // Add file input handler
+  const fileInput = $('#file-input')
+  fileInput.addEventListener('change', handleFileInput)
+
+  // Add JSON submit handler
+  const submitButton = $('#submit-json')
+  submitButton.addEventListener('click', handleJsonSubmit)
 
   document
     .getElementById('initialMessage')
