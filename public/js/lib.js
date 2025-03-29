@@ -1,3 +1,5 @@
+import { categoryRussian } from './categories.js'
+
 export function $(selector) {
   return document.querySelector(selector)
 }
@@ -36,22 +38,16 @@ export function formatDate(date) {
   return `${date.slice(6)}.${date.slice(4, 6)}.${date.slice(0, 4)}`
 }
 
-export function validatePaymentsFile(paymentsTextData) {
-  if (typeof paymentsTextData.title !== 'string') {
+export function validatePaymentsFile(fileContent) {
+  if (typeof fileContent.title !== 'string') {
     throw new Error(`Поле title должно быть типа 'string'.`)
   }
 
-  if (typeof paymentsTextData.payments !== 'object') {
+  if (typeof fileContent.payments !== 'object') {
     throw new Error(`Поле 'payments' должно быть типа 'object'.`)
   }
 
-  const paymentFieldTypes = {
-    name: 'string',
-    category: 'number',
-    value: 'number',
-  }
-
-  const { payments } = paymentsTextData
+  const { payments } = fileContent
 
   Object.entries(payments).forEach(([date, dayPayments]) => {
     if (!dayPayments || !Array.isArray(dayPayments)) {
@@ -65,6 +61,12 @@ export function validatePaymentsFile(paymentsTextData) {
         )
       }
 
+      const paymentFieldTypes = {
+        name: 'string',
+        category: 'number',
+        value: 'number',
+      }
+
       Object.entries(paymentFieldTypes).forEach(([fieldName, fieldType]) => {
         if (typeof payment[fieldName] !== fieldType) {
           throw new Error(
@@ -72,6 +74,12 @@ export function validatePaymentsFile(paymentsTextData) {
           )
         }
       })
+
+      if (!Object.keys(categoryRussian).includes(String(payment.category))) {
+        throw new Error(
+          `Платеж за ${date} содержит недопустимое поле category (${payment.category}). Индекс ${index}.`
+        )
+      }
     })
   })
 }
