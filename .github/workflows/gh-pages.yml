@@ -24,7 +24,7 @@ jobs:
         run: npm install vite
 
       - name: Build
-        run: npm run build
+        run: npm run build --base='https://vladcyb.github.io/pay-stat/'
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
