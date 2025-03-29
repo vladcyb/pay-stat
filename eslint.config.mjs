@@ -13,4 +13,8 @@ export default defineConfig([
     plugins: { js },
     extends: ['js/recommended'],
   },
+  {
+    env: { node: true },
+    es2022: true,
+  },
 ])

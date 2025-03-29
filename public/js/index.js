@@ -17,11 +17,6 @@ function handleFileDrop(event) {
       fileContent = JSON.parse(e.target.result)
       validatePaymentsFile(fileContent)
       renderPayments(fileContent)
-
-      // Encode data and update URL
-      const encodedData = encodeURIComponent(JSON.stringify(fileContent))
-      const newUrl = `${window.location.origin}${window.location.pathname}?data=${encodedData}`
-      window.history.pushState({}, '', newUrl)
     } catch (error) {
       alert(
         error.message ||
@@ -85,23 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('dragleave', handleDragLeave)
   document.addEventListener('drop', handleFileDrop)
 
-  // Check for data in URL on page load
-  const urlParams = new URLSearchParams(window.location.search)
-  const data = urlParams.get('data')
-  if (data) {
-    try {
-      const decodedData = JSON.parse(decodeURIComponent(data))
-      validatePaymentsFile(decodedData)
-      renderPayments(decodedData)
-    } catch (error) {
-      document
-        .getElementById('initialMessage')
-        .classList.remove('initialMessage_hidden')
-      console.error('Error parsing URL data:', error)
-    }
-  } else {
-    document
-      .getElementById('initialMessage')
-      .classList.remove('initialMessage_hidden')
-  }
+  document
+    .getElementById('initialMessage')
+    .classList.remove('initialMessage_hidden')
 })
