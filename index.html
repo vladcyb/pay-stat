@@ -8,15 +8,37 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Финансы</title>
-    <script type="module" crossorigin src="/pay-stat/assets/index-BCZchA0U.js"></script>
-    <link rel="stylesheet" crossorigin href="/pay-stat/assets/index-UgVLXD62.css">
+    <script type="module" crossorigin src="/pay-stat/assets/index-Cq4pCZnC.js"></script>
+    <link rel="stylesheet" crossorigin href="/pay-stat/assets/index-CnbsWyRR.css">
   </head>
   <body>
     <div id="root">
+      <div class="guide-section" id="format-guide"></div>
+      <div class="guide-section" id="categories-guide"></div>
+      <div class="input-container">
+        <div class="file-input-wrapper">
+          <input
+            type="file"
+            id="file-input"
+            accept=".json"
+            class="file-input"
+          />
+          <label for="file-input" class="file-input-label">Выбрать файл</label>
+        </div>
+        <div class="text-input-wrapper">
+          <textarea
+            id="json-input"
+            placeholder="Вставьте JSON данные сюда..."
+            class="json-input"
+          ></textarea>
+          <button id="submit-json" class="submit-button">Отправить</button>
+        </div>
+      </div>
       <div id="drop-zone"></div>
       <div id="initialMessage" class="initialMessage initialMessage_hidden">
         Перетащите JSON файл с данными в любое место на странице
       </div>
+      <div id="statistics-container"></div>
     </div>
   </body>
 </html>
