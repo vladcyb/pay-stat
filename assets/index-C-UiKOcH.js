@@ -1,0 +1,47 @@
+var F=a=>{throw TypeError(a)};var O=(a,e,t)=>e.has(a)||F("Cannot "+t);var l=(a,e,t)=>(O(a,e,"read from private field"),t?t.call(a):e.get(a)),p=(a,e,t)=>e.has(a)?F("Cannot add the same private member more than once"):e instanceof WeakSet?e.add(a):e.set(a,t),h=(a,e,t,s)=>(O(a,e,"write to private field"),s?s.call(a,t):e.set(a,t),t);(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const n of document.querySelectorAll('link[rel="modulepreload"]'))s(n);new MutationObserver(n=>{for(const r of n)if(r.type==="childList")for(const i of r.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&s(i)}).observe(document,{childList:!0,subtree:!0});function t(n){const r={};return n.integrity&&(r.integrity=n.integrity),n.referrerPolicy&&(r.referrerPolicy=n.referrerPolicy),n.crossOrigin==="use-credentials"?r.credentials="include":n.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function s(n){if(n.ep)return;n.ep=!0;const r=t(n);fetch(n.href,r)}})();const D={1:"Еда",2:"Фастфуд",3:"Сладости",4:"Алкоголь",5:"Кафе",6:"Машина",7:"Транспорт",8:"Образование",9:"Дом",10:"Развлечения",11:"Путешествия",12:"Одежда",13:"Техника",14:"Спорт",15:"Здоровье",16:"Другое"};function b(a){return document.querySelector(a)}function o(a,e){const t=document.createElement(a);return e&&(t.className=e),t}function M(a){return o("table",a)}function E(a){return o("tr",a)}function m(a){return o("td",a)}function P(a){return o("th",a)}function y(a){return o("div",a)}function q(a){return`${a.slice(6)}.${a.slice(4,6)}.${a.slice(0,4)}`}function A(a){if(typeof a.title!="string")throw new Error("Поле title должно быть типа 'string'.");if(typeof a.payments!="object")throw new Error("Поле 'payments' должно быть типа 'object'.");const{payments:e}=a;Object.entries(e).forEach(([t,s])=>{if(!s||!Array.isArray(s))throw new Error(`Данные за ${t} не являются массивом.`);s.forEach((n,r)=>{if(typeof n!="object"||!n||Array.isArray(n))throw new Error(`Платеж за ${t} не является объектом. Индекс ${r}.`);if(Object.entries({name:"string",category:"number",value:"number"}).forEach(([c,d])=>{if(typeof n[c]!==d)throw new Error(`Поле ${c} должно быть ${d}, а не ${typeof n[c]}.
+Дата: ${t}. Индекс: ${r}.`)}),!Object.keys(D).includes(String(n.category)))throw new Error(`Платеж за ${t} содержит недопустимое поле category (${n.category}). Индекс ${r}.`)})})}var v;class H{constructor(e){p(this,v);h(this,v,e)}render(){const e=y(l(this,v));return e.innerHTML=`
+    <h2>Формат файла</h2>
+        <p>Файл должен быть в формате JSON со следующей структурой:</p>
+        <pre class="format-example">
+{
+  <span class="code-key">"title"</span>: <span class="code-string">"Название отчета"</span>,
+  <span class="code-key">"payments"</span>: {
+    <span class="code-key">"20240329"</span>: [
+      {
+        <span class="code-key">"category"</span>: <span class="code-number">1</span>,
+        <span class="code-key">"value"</span>: <span class="code-number">100</span>,
+        <span class="code-key">"name"</span>: <span class="code-string">"помидоры"</span>
+      },
+      {
+        <span class="code-key">"category"</span>: <span class="code-number">2</span>,
+        <span class="code-key">"value"</span>: <span class="code-number">400</span>,
+        <span class="code-key">"name"</span>: <span class="code-string">"бургер"</span>
+      }
+    ],
+    <span class="code-key">"20240328"</span>: [
+      {
+        <span class="code-key">"category"</span>: <span class="code-number">7</span>,
+        <span class="code-key">"value"</span>: <span class="code-number">500</span>,
+        <span class="code-key">"name"</span>: <span class="code-string">"Такси"</span>
+      }
+    ]
+  }
+}</pre>
+        <div class="format-notes">
+          <h3>Правила:</h3>
+          <ul>
+            <li>Даты должны быть в формате ГГГГММДД</li>
+            <li>Суммы указываются в любой валюте</li>
+            <li>В поле категории указывается номер категории (таблица категорий ниже)</li>
+            <li>В один день может быть несколько платежей</li>
+            <li>Дни можно писать в любом порядке (они будут отсортированы по дате)</li>
+          </ul> 
+    `,e}}v=new WeakMap;class J{render(){const e=o("div","guide"),t=o("h2");t.innerText="Категории расходов",e.append(t);const s=o("p");s.innerText="Каждая категория расходов имеет свой уникальный код:",e.append(s);const n=o("pre","format-example");n.innerText=Object.entries(D).map(([d,f])=>`${d} - ${f}`).join(`
+`),e.append(n);const r=o("div","format-notes"),i=o("h3");i.innerText="Правила:",r.append(i);const c=o("ul");return c.innerHTML=`
+      <li>В файле с данными используется только код категории</li>
+      <li>Название категории используется только для отображения</li>
+    `,r.append(c),e.append(r),e}}var u;class V{constructor(e,t=""){p(this,u);h(this,u,M(t)),this.addHeader(),e.toSorted((s,n)=>n.value-s.value).forEach(s=>{this.addPayment(s)})}addHeader(){const e=E(`${l(this,u).className}__tr`);["Наименование","Стоимость","Категория"].forEach(t=>{const s=P(`${l(this,u).className}__th`);s.innerText=t,e.append(s)}),l(this,u).append(e)}render(){return l(this,u)}addPayment(e){const t=E(),s=m(),n=m(),r=m();s.innerText=e.name,n.innerText=e.value,r.innerText=D[e.category],t.append(s,n,r),l(this,u).append(t)}}u=new WeakMap;var g;class j{constructor(){p(this,g);h(this,g,M())}render(){return l(this,g)}addCategory(e,t){const s=E(),n=m(),r=m();n.innerText=D[e],r.innerText=t,s.append(n,r),l(this,g).append(s)}addTotal(e){const t=E("day__selected-row"),s=m(),n=m();s.innerText="Итого",n.innerText=e,t.append(s,n),l(this,g).append(t)}}g=new WeakMap;var w,T,C;class B{constructor(e,t,s){p(this,w);p(this,T);p(this,C);h(this,w,e),h(this,T,t),h(this,C,[...s].toSorted((n,r)=>r[1]-n[1]))}render(){const e=y("day"),t=y("day__header");t.innerText=q(l(this,w)),e.append(t);const s=y("day__content"),n=new V(l(this,T),"dayTable");s.append(n.render()),e.append(s);const r=y("day__statistics"),i=new j;let c=0;return l(this,C).forEach(([d,f])=>{c+=f,i.addCategory(d,f)}),i.addTotal(c),r.append(i.render()),e.append(r),e}}w=new WeakMap,T=new WeakMap,C=new WeakMap;var S,L;class R{constructor(e,t){p(this,S);p(this,L);h(this,L,e),h(this,S,[...t].toSorted((s,n)=>n[1]-s[1]))}render(){const e=y("totalStatistics"),t=o("h1","totalStatistics__title");t.innerText=l(this,L),e.append(t);const s=o("h2","totalStatistics__subtitle");s.innerText="Общая статистика",e.append(s);const n=o("button","totalStatistics__close");n.innerHTML=`<svg class="totalStatistics__close-img" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M18 35.75C8.19695 35.75 0.25 27.8031 0.25 18C0.25 8.19695 8.19695 0.25 18 0.25C27.8031 0.25 35.75 8.19695 35.75 18C35.75 27.8031 27.8031 35.75 18 35.75Z"  stroke="#CDCDCD" stroke-width="0.5"/>
+<path d="M26 9.36753L9 26M9 9L26 25.6325" stroke="black"/>
+</svg>
+`,e.append(n),n.addEventListener("click",()=>{document.querySelector("#statisticsContainer").childNodes.forEach(c=>{c.remove()}),document.querySelector("#initialContent").classList.remove("d-none")});const r=new j;let i=0;return l(this,S).forEach(([c,d])=>{i+=d,r.addCategory(c,d)}),r.addTotal(i),e.append(r.render()),e}}S=new WeakMap,L=new WeakMap;class $ extends Map{constructor(e){super(),Object.values(e).flat().forEach(t=>this.add(t.category,t.value))}add(e,t){this.has(e)?this.set(e,this.get(e)+t):this.set(e,t)}}var x;class G{constructor(){p(this,x);this.handleFileContent=this.handleFileContent.bind(this),this.handleFileDrop=this.handleFileDrop.bind(this),this.handleFileInput=this.handleFileInput.bind(this),this.handleJsonSubmit=this.handleJsonSubmit.bind(this),this.handleDragOver=this.handleDragOver.bind(this),this.handleDragLeave=this.handleDragLeave.bind(this),document.addEventListener("dragover",this.handleDragOver),document.addEventListener("dragleave",this.handleDragLeave),document.addEventListener("drop",this.handleFileDrop),b("#file-input").addEventListener("change",this.handleFileInput),b("#submit-json").addEventListener("click",this.handleJsonSubmit)}handleFileContent(e){try{const t=JSON.parse(e);A(t);const s=document.querySelector("#initialContent");s&&s.classList.add("d-none"),this.renderPayments(t)}catch(t){alert(t.message||"Ошибка при чтении данных. Убедитесь, что данные содержат корректный JSON.")}}handleFileDrop(e){e.preventDefault();const t=e.dataTransfer.files[0];if(!t)return;const s=new FileReader;s.onload=n=>this.handleFileContent(n.target.result),s.readAsText(t)}handleFileInput(e){const t=e.target.files[0];if(!t)return;const s=new FileReader;s.onload=n=>this.handleFileContent(n.target.result),s.readAsText(t)}handleJsonSubmit(){const t=b("#json-input").value.trim();t&&this.handleFileContent(t)}handleDragOver(e){e.preventDefault()}handleDragLeave(e){e.preventDefault()}renderPayments(e){const t=b("#statisticsContainer"),{payments:s,title:n}=e,r=y("container"),i=new $(s),c=new R(n,i);r.append(c.render());const d=o("h2","dailyStatisticsTitle");d.innerText="Статистика по дням",r.append(d),Object.entries(s).forEach(([k,_])=>{const I=new $(_),N=new B(k,_,I);r.append(N.render())});const f=b("#initialMessage");f&&f.classList.add("initialMessage_hidden"),t.innerHTML="",t.append(r)}}x=new WeakMap;document.addEventListener("DOMContentLoaded",()=>{document.querySelector("#format-guide").append(new H().render()),document.querySelector("#categories-guide").append(new J().render()),new G,document.getElementById("initialMessage").classList.remove("initialMessage_hidden")});
