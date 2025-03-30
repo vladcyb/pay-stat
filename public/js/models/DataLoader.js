@@ -25,7 +25,7 @@ export class DataLoader {
     if (source) {
       this.handleSource(source)
     } else {
-      $('.initialContent').classList.remove('initialContent_hidden')
+      this.showInitialContent()
     }
   }
 
@@ -36,9 +36,18 @@ export class DataLoader {
       this.handleFileContent(text)
     } else {
       alert('Недействительная ссылка')
-      $('.initialContent').classList.remove('initialContent_hidden')
+      this.showInitialContent()
     }
   }
+
+  showInitialContent() {
+    $('.initialContent').classList.remove('d-none')
+  }
+
+  hideInitialContent() {
+    $('.initialContent').classList.add('d-none')
+  }
+
 
   handleFileContent(content) {
     try {
@@ -46,11 +55,11 @@ export class DataLoader {
       validatePaymentsFile(fileContent)
       const initialContent = $('#initialContent')
       if (initialContent) {
-        initialContent.classList.add('d-none')
+        this.hideInitialContent()
       }
       this.renderPayments(fileContent)
     } catch (error) {
-      initialContent.classList.remove('initialContent_hidden')
+      this.showInitialContent()
       alert(
         error.message ||
           'Ошибка при чтении данных. Убедитесь, что данные содержат корректный JSON.'

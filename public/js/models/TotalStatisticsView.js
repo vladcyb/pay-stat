@@ -1,4 +1,4 @@
-import { createDiv, createElement } from '../lib.js'
+import { $, createDiv, createElement } from '../lib.js'
 import { DayStatisticsTable } from './DayStatisticsTable.js'
 
 export class TotalStatisticsView {
@@ -30,7 +30,7 @@ export class TotalStatisticsView {
         .childNodes.forEach((child) => {
           child.remove()
         })
-      document.querySelector('#initialContent').classList.remove('d-none')
+      $('#initialContent').classList.remove('d-none')
     })
     const statisticsTable = new DayStatisticsTable()
 
