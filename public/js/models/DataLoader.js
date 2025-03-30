@@ -30,7 +30,6 @@ export class DataLoader {
   }
 
   async handleSource(source) {
-    console.log(source)
     const request = await fetch(source)
     const text = await request.text()
     if (request.status === 200) {
