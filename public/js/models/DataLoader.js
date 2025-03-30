@@ -20,6 +20,25 @@ export class DataLoader {
     // Add file input handler
     const fileInput = $('#file-input')
     fileInput.addEventListener('change', this.handleFileInput)
+
+    const source = new URLSearchParams(location.search).get('source')
+    if (source) {
+      this.handleSource(source)
+    } else {
+      $('.initialContent').classList.remove('initialContent_hidden')
+    }
+  }
+
+  async handleSource(source) {
+    console.log(source)
+    const request = await fetch(source)
+    const text = await request.text()
+    if (request.status === 200) {
+      this.handleFileContent(text)
+    } else {
+      alert('Недействительная ссылка')
+      $('.initialContent').classList.remove('initialContent_hidden')
+    }
   }
 
   handleFileContent(content) {
