@@ -91,6 +91,10 @@
   margin: 1rem 0;
 }
 
+.categories-format-example {
+  min-height: 300px;
+}
+
 .code-key {
   color: #61afef;
 }

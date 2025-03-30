@@ -4,7 +4,6 @@ import { TotalStatisticsView } from './TotalStatisticsView.js'
 import { PaymentsStatistics } from './PaymentsStatistics.js'
 
 export class DataLoader {
-  #fileContent
   constructor() {
     this.handleFileContent = this.handleFileContent.bind(this)
     this.handleFileDrop = this.handleFileDrop.bind(this)
@@ -21,10 +20,6 @@ export class DataLoader {
     // Add file input handler
     const fileInput = $('#file-input')
     fileInput.addEventListener('change', this.handleFileInput)
-
-    // Add JSON submit handler
-    const submitButton = $('#submit-json')
-    submitButton.addEventListener('click', this.handleJsonSubmit)
   }
 
   handleFileContent(content) {
