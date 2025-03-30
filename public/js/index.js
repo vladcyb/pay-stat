@@ -11,6 +11,15 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .join('')
 
+  $('#loadJsonForm').addEventListener('submit', (e) => {
+    e.preventDefault()
+    const url = $('#jsonUrl').value
+    console.log(url)
+    if (url) {
+      location.href = `?source=${url}`
+    }
+  })
+
   // Initialize data loader
   new DataLoader()
 })

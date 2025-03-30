@@ -3,36 +3,14 @@
 @import './blocks/container.css';
 @import './blocks/totalStatistics.css';
 @import './blocks/dailyStatisticsTitle.css';
-@import './blocks/page.css';
 @import './blocks/statisticsContainer.css';
 @import './blocks/categoriesFormatExample.css';
 @import './blocks/initialContent.css';
+@import './blocks/hints.css';
 
 .container {
   max-width: 600px;
   margin: 0 auto;
-}
-
-.file-input-wrapper {
-  position: relative;
-}
-
-.file-input {
-  display: none;
-}
-
-.file-input-label {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: var(--c-green);
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.file-input-label:hover {
-  background-color: var(--c-dark-green);
 }
 
 .text-input-wrapper {
@@ -233,12 +211,4 @@ h1 {
 
 .text-center {
   text-align: center;
-}
-
-.link-example-container {
-  padding-top: 10px;
-}
-
-.example-link {
-  color: var(--c-green);
 }
