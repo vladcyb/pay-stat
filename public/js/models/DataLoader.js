@@ -45,12 +45,13 @@ export class DataLoader {
     try {
       const fileContent = JSON.parse(content)
       validatePaymentsFile(fileContent)
-      const initialContent = document.querySelector('#initialContent')
+      const initialContent = $('#initialContent')
       if (initialContent) {
         initialContent.classList.add('d-none')
       }
       this.renderPayments(fileContent)
     } catch (error) {
+      initialContent.classList.remove('initialContent_hidden')
       alert(
         error.message ||
           'Ошибка при чтении данных. Убедитесь, что данные содержат корректный JSON.'
