@@ -24,7 +24,7 @@
 .file-input-label {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background-color: #4caf50;
+  background-color: var(--c-green);
   color: white;
   border-radius: 4px;
   cursor: pointer;
@@ -32,7 +32,7 @@
 }
 
 .file-input-label:hover {
-  background-color: #45a049;
+  background-color: var(--c-dark-green);
 }
 
 .text-input-wrapper {
@@ -233,4 +233,12 @@ h1 {
 
 .text-center {
   text-align: center;
+}
+
+.link-example-container {
+  padding-top: 10px;
+}
+
+.example-link {
+  color: var(--c-green);
 }
