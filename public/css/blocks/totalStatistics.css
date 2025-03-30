@@ -19,7 +19,6 @@
 }
 
 .totalStatistics__close {
-  /* background-image: url("data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 36 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 35.75C8.19695 35.75 0.25 27.8031 0.25 18C0.25 8.19695 8.19695 0.25 18 0.25C27.8031 0.25 35.75 8.19695 35.75 18C35.75 27.8031 27.8031 35.75 18 35.75Z' fill='white' stroke='%23CDCDCD' stroke-width='0.5'/%3E%3Cpath d='M26 9.36753L9 26M9 9L26 25.6325' stroke='black'/%3E%3C/svg%3E%0A"); */
   width: 36px;
   background-color: white;
   height: 36px;
