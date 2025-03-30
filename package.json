@@ -7,15 +7,15 @@
   "author": "Vlad Tsibizov",
   "type": "commonjs",
   "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vladcyb/pay-stat.git"
+  },
   "scripts": {
-    "start": "node server.js",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint public"
-  },
-  "dependencies": {
-    "express": "^4.21.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.23.0",
