@@ -31,6 +31,9 @@ export class TotalStatisticsView {
           child.remove()
         })
       $('#initialContent').classList.remove('d-none')
+      if (location.search) {
+        location.search = ''
+      }
     })
     const statisticsTable = new DayStatisticsTable()
 
