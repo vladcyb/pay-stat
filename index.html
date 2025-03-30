@@ -8,8 +8,8 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Финансы</title>
-    <script type="module" crossorigin src="/pay-stat/assets/index-DzBjh1j-.js"></script>
-    <link rel="stylesheet" crossorigin href="/pay-stat/assets/index-5hmo5sPH.css">
+    <script type="module" crossorigin src="/pay-stat/assets/index-BQFvIcRZ.js"></script>
+    <link rel="stylesheet" crossorigin href="/pay-stat/assets/index-BLH_yZtx.css">
   </head>
   <body>
     <div class="page" id="root">
@@ -76,37 +76,28 @@
             </div>
           </div>
         </div>
-        <div class="container">
+        <div class="container hints">
           <div class="text-center">
             <strong>
               Перетащите JSON файл с данными в любое место на странице
             </strong>
           </div>
-          <div class="page__or">или</div>
-          <div class="file-input-wrapper text-center">
-            <input
-              type="file"
-              id="file-input"
-              accept=".json"
-              class="file-input"
-            />
-            <label for="file-input" class="file-input-label">
+          <div class="hints__or">или</div>
+          <div class="hints__file-input-wrapper text-center">
+            <input type="file" id="file-input" accept=".json" class="d-none" />
+            <label for="file-input" class="hints__file-input-label">
               Выбрать файл
             </label>
           </div>
-          <div class="page__or">или</div>
+          <div class="hints__or">или</div>
           <div class="text-center">
             <strong>
-              Укажите в search параметре адресной строки <u>search</u> URL на
-              ваш ресурс в формате JSON
-            </strong>
-            <div class="link-example-container">
-              <a
-                class="text-center example-link"
-                href="https://vladcyb.github.io/pay-stat/?source=https://gist.githubusercontent.com/vladcyb/e2f60853b9a70b84530bd0a034bfec1e/raw/df4b7dafdda5305b0e5427a5ca1743c7c5a0c69f/patrick-expenses.json"
-              >
-                Пример
-              </a>
+              Введите ссылку на JSON в текстовое поле и нажмите Enter</strong
+            >
+            <div>
+              <form id="loadJsonForm">
+                <input class="hints__jsonPathInput" type="text" id="jsonUrl" />
+              </form>
             </div>
           </div>
         </div>
