@@ -11,6 +11,7 @@
   --c-dark: #333;
   --c-selection: #c3ffc9;
   --c-dark-blue: #2c3e50;
+  --c-dark-blue-rgb: 44 62 80;
   --c-green: #4caf50;
   --c-dark-green: #45a049;
 }
@@ -62,8 +63,4 @@ h6 {
 
 h1 {
   margin-bottom: 20px;
-}
-
-.file-input-label {
-  margin-bottom: 0.5rem;
 }
