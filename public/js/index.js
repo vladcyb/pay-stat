@@ -1,6 +1,7 @@
 import { categoryRussian } from './categories.js'
 import { $ } from './lib.js'
 import { DataLoader } from './models/DataLoader.js'
+import { Chart } from 'chart.js/auto'
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
   $('#loadJsonForm').addEventListener('submit', (e) => {
     e.preventDefault()
     const url = $('#jsonUrl').value
-    console.log(url)
     if (url) {
       location.href = `?source=${url}`
     }

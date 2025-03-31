@@ -18,7 +18,6 @@ export class DayStatisticsTable {
   }
 
   createTD() {
-    console.log(this.#className)
     return createTableCell(`${this.#className}__td`)
   }
 

@@ -1,5 +1,7 @@
 import { $, createDiv, createElement } from '../lib.js'
 import { DayStatisticsTable } from './DayStatisticsTable.js'
+import { Chart } from 'chart.js/auto'
+import { categoryRussian } from '../categories'
 
 export class TotalStatisticsView {
   #statistics
@@ -43,8 +45,25 @@ export class TotalStatisticsView {
       statisticsTable.addCategory(category, value)
     })
     statisticsTable.addTotal(total)
-
+    const chartContainer = createElement('canvas', 'totalExpensesGraph')
+    chartContainer.width = 800
+    chartContainer.height = 800
+    container.append(chartContainer)
     container.append(statisticsTable.render())
+
+    new Chart(chartContainer, {
+      type: 'bar',
+      data: {
+        labels: this.#statistics.map(([category]) => categoryRussian[category]),
+        datasets: [
+          {
+            label: 'Траты за все время',
+            data: this.#statistics.map(([, value]) => value),
+          },
+        ],
+      },
+    })
+
     return container
   }
 }
