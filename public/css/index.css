@@ -8,6 +8,8 @@
 @import './blocks/initialContent.css';
 @import './blocks/hints.css';
 @import './blocks/guide.css';
+@import './blocks/mainStatisticsTable.css';
+@import './blocks/dayTable.css';
 
 .container {
   max-width: 600px;

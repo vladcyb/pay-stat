@@ -3,19 +3,29 @@ import { createTable, createTableCell, createTableRow } from '../lib.js'
 
 export class DayStatisticsTable {
   #table
-
+  #className
   constructor() {
-    this.#table = createTable()
+    this.#className = 'mainStatisticsTable'
+    this.#table = createTable(this.#className)
   }
 
   render() {
     return this.#table
   }
 
+  createTR(className = '') {
+    return createTableRow(`${this.#className}__tr ${className}`)
+  }
+
+  createTD() {
+    console.log(this.#className)
+    return createTableCell(`${this.#className}__td`)
+  }
+
   addCategory(category, value) {
-    const row = createTableRow()
-    const nameCell = createTableCell()
-    const valueCell = createTableCell()
+    const row = this.createTR()
+    const nameCell = this.createTD()
+    const valueCell = this.createTD()
     nameCell.innerText = categoryRussian[category]
     valueCell.innerText = value
     row.append(nameCell, valueCell)
@@ -23,9 +33,9 @@ export class DayStatisticsTable {
   }
 
   addTotal(total) {
-    const row = createTableRow('day__selected-row')
-    const nameCell = createTableCell()
-    const valueCell = createTableCell()
+    const row = this.createTR('day__selected-row')
+    const nameCell = this.createTD()
+    const valueCell = this.createTD()
     nameCell.innerText = 'Итого'
     valueCell.innerText = total
     row.append(nameCell, valueCell)
