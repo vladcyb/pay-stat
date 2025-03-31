@@ -10,7 +10,7 @@
 @import './blocks/guide.css';
 @import './blocks/mainStatisticsTable.css';
 @import './blocks/dayTable.css';
-@import './blocks/totalExpensesGraph.css';
+@import './blocks/totalExpensesPieContainer.css';
 
 .container {
   max-width: 600px;

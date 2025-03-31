@@ -45,21 +45,46 @@ export class TotalStatisticsView {
       statisticsTable.addCategory(category, value)
     })
     statisticsTable.addTotal(total)
-    const chartContainer = createElement('canvas', 'totalExpensesGraph')
-    chartContainer.width = 800
-    chartContainer.height = 800
-    container.append(chartContainer)
+    const doughnutContainer = createDiv('totalExpensesPieContainer')
+    const doughnut = createElement('canvas', 'totalExpensesPie')
+    doughnut.width = 800
+    doughnut.height = 800
+    doughnutContainer.append(doughnut)
+    container.append(doughnutContainer)
     container.append(statisticsTable.render())
 
-    new Chart(chartContainer, {
-      type: 'bar',
+    new Chart(doughnut, {
+      type: 'doughnut',
       data: {
         labels: this.#statistics.map(([category]) => categoryRussian[category]),
         datasets: [
           {
-            backgroundColor: '#4caf50',
-            label: 'Траты за все время',
             data: this.#statistics.map(([, value]) => value),
+            backgroundColor: [
+              '#FFF8B5',
+              '#2B8094',
+              '#B5F1FF',
+              '#272E3F',
+              '#D7E2FF',
+              '#615D2F',
+              '#FFF7E3',
+              '#948B2B',
+              '#FFFDE3',
+              '#596788',
+              '#E3FAFF',
+              '#61532F',
+              '#ACEBFA',
+              '#2F5761',
+              '#C9D9FF',
+              '#2B4994',
+              '#ffe29f',
+              '#94752B',
+              '#FAE3AC',
+              '#304069',
+              '#FAF3AC',
+              '#FFEAB5',
+            ],
+            hoverOffset: 4,
           },
         ],
       },
