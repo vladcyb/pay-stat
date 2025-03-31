@@ -57,6 +57,7 @@ export class TotalStatisticsView {
         labels: this.#statistics.map(([category]) => categoryRussian[category]),
         datasets: [
           {
+            backgroundColor: '#4caf50',
             label: 'Траты за все время',
             data: this.#statistics.map(([, value]) => value),
           },
