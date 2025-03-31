@@ -1,7 +1,6 @@
 import { categoryRussian } from './categories.js'
 import { $ } from './lib.js'
 import { DataLoader } from './models/DataLoader.js'
-import { Chart } from 'chart.js/auto'
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
