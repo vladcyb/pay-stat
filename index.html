@@ -8,8 +8,8 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Финансы</title>
-    <script type="module" crossorigin src="/pay-stat/assets/index-D8fcHEH3.js"></script>
-    <link rel="stylesheet" crossorigin href="/pay-stat/assets/index-BLH_yZtx.css">
+    <script type="module" crossorigin src="/pay-stat/assets/index-DijxZbAl.js"></script>
+    <link rel="stylesheet" crossorigin href="/pay-stat/assets/index-BDq6EgJl.css">
   </head>
   <body>
     <div class="page" id="root">
@@ -51,9 +51,11 @@
             </div>
           </div>
           <div class="guide">
-            <h2>Формат входного файла</h2>
-            <p>Файл должен быть в формате JSON со следующей структурой:</p>
-            <pre class="format-example">
+            <h2 class="guide__h2">Формат входного файла</h2>
+            <p class="guide__paragraph">
+              Файл должен быть в формате JSON со следующей структурой:
+            </p>
+            <pre class="guide__format-example">
 {
   <span class="code-key">"title"</span>: <span class="code-string">"Название отчета"</span>,
   <span class="code-key">"payments"</span>: {
@@ -78,17 +80,23 @@
     ]
   }
 }</pre>
-            <div class="format-notes">
+            <div class="guide__format-notes">
               <h3>Правила:</h3>
-              <ul>
-                <li>Даты должны быть в формате ГГГГММДД</li>
-                <li>Суммы указываются в любой валюте</li>
-                <li>
+              <ul class="guide__format-notes-ul">
+                <li class="guide__format-notes-li">
+                  Даты должны быть в формате <strong>ГГГГММДД</strong>
+                </li>
+                <li class="guide__format-notes-li">
+                  Суммы указываются в любой валюте
+                </li>
+                <li class="guide__format-notes-li">
                   В поле категории указывается номер категории (таблица
                   категорий ниже)
                 </li>
-                <li>В один день может быть несколько платежей</li>
-                <li>
+                <li class="guide__format-notes-li">
+                  В один день может быть несколько платежей
+                </li>
+                <li class="guide__format-notes-li">
                   Дни можно писать в любом порядке (они будут отсортированы по
                   дате)
                 </li>
@@ -98,14 +106,20 @@
         </div>
         <div class="container" id="categories-guide">
           <div class="guide">
-            <h2>Категории расходов</h2>
-            <p>Каждая категория расходов имеет свой уникальный код:</p>
-            <pre class="format-example categories-format-example"></pre>
-            <div class="format-notes">
+            <h2 class="guide__h2">Категории расходов</h2>
+            <p class="guide__paragraph">
+              Каждая категория расходов имеет свой уникальный код:
+            </p>
+            <pre class="guide__format-example categories-format-example"></pre>
+            <div class="guide__format-notes">
               <h3>Правила:</h3>
-              <ul>
-                <li>Каждая категория имеет свой уникальный код</li>
-                <li>Категория должна быть числом и быть в списке выше</li>
+              <ul class="guide__format-notes-ul">
+                <li class="guide__format-notes-li">
+                  Каждая категория имеет свой уникальный код
+                </li>
+                <li class="guide__format-notes-li">
+                  Категория должна быть числом и быть в списке выше
+                </li>
               </ul>
             </div>
           </div>
