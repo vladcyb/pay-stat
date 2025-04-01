@@ -18,7 +18,3 @@
 .day__content {
   padding-top: 20px;
 }
-
-.day__selected-row {
-  background: var(--c-selection);
-}

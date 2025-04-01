@@ -1,6 +1,6 @@
 import { createDiv, formatDate } from '../lib.js'
 import { PaymentTable } from './PaymentTable.js'
-import { DayStatisticsTable } from './DayStatisticsTable.js'
+import { StatisticsTable } from './StatisticsTable.js'
 
 export class DayView {
   #date
@@ -25,12 +25,15 @@ export class DayView {
     dayRoot.append(dayContent)
 
     const statisticsContainer = createDiv('day__statistics')
-    const statisticsTable = new DayStatisticsTable()
+    const statisticsTable = new StatisticsTable('dayStatisticsTable')
 
-    let dayTotal = 0
+    const dayTotal = this.#statistics.reduce((acc, curr) => acc + curr[1], 0)
     this.#statistics.forEach(([category, value]) => {
-      dayTotal += value
-      statisticsTable.addCategory(category, value)
+      statisticsTable.addCategory(
+        category,
+        value,
+        Math.floor((100 * value) / dayTotal) + '%'
+      )
     })
     statisticsTable.addTotal(dayTotal)
 

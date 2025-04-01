@@ -1,7 +1,8 @@
 import { $, createDiv, createElement } from '../lib.js'
-import { DayStatisticsTable } from './DayStatisticsTable.js'
+import { StatisticsTable } from './StatisticsTable.js'
 import { Chart } from 'chart.js/auto'
 import { categoryRussian } from '../categories'
+import { doughnutColors } from '../constants/doughnutColors'
 
 export class TotalStatisticsView {
   #statistics
@@ -37,14 +38,21 @@ export class TotalStatisticsView {
         location.search = ''
       }
     })
-    const statisticsTable = new DayStatisticsTable()
+    const statisticsTable = new StatisticsTable()
 
-    let total = 0
+    const allTimeCash = this.#statistics.reduce((acc, item) => {
+      return acc + item[1]
+    }, 0)
+
     this.#statistics.forEach(([category, value]) => {
-      total += value
-      statisticsTable.addCategory(category, value)
+      statisticsTable.addCategory(
+        category,
+        value,
+        Math.floor((100 * value) / allTimeCash) + '%'
+      )
     })
-    statisticsTable.addTotal(total)
+
+    statisticsTable.addTotal(allTimeCash)
     const doughnutContainer = createDiv('totalExpensesPieContainer')
     const doughnut = createElement('canvas', 'totalExpensesPie')
     doughnut.width = 800
@@ -52,6 +60,7 @@ export class TotalStatisticsView {
     doughnutContainer.append(doughnut)
     container.append(doughnutContainer)
     container.append(statisticsTable.render())
+    queueMicrotask(() => statisticsTable.addColors())
 
     new Chart(doughnut, {
       type: 'doughnut',
@@ -60,30 +69,7 @@ export class TotalStatisticsView {
         datasets: [
           {
             data: this.#statistics.map(([, value]) => value),
-            backgroundColor: [
-              '#FFF8B5',
-              '#2B8094',
-              '#B5F1FF',
-              '#272E3F',
-              '#D7E2FF',
-              '#615D2F',
-              '#FFF7E3',
-              '#948B2B',
-              '#FFFDE3',
-              '#596788',
-              '#E3FAFF',
-              '#61532F',
-              '#ACEBFA',
-              '#2F5761',
-              '#C9D9FF',
-              '#2B4994',
-              '#ffe29f',
-              '#94752B',
-              '#FAE3AC',
-              '#304069',
-              '#FAF3AC',
-              '#FFEAB5',
-            ],
+            backgroundColor: doughnutColors.map((item) => item),
             hoverOffset: 4,
           },
         ],

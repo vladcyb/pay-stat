@@ -11,6 +11,8 @@
 @import './blocks/mainStatisticsTable.css';
 @import './blocks/dayTable.css';
 @import './blocks/totalExpensesPieContainer.css';
+@import './utility.css';
+@import './blocks/dayStatisticsTable.css';
 
 .container {
   max-width: 600px;
@@ -67,14 +69,6 @@
   color: #e06c75;
 }
 
-.d-none {
-  display: none;
-}
-
 h1 {
   border-bottom: 1px solid #000;
-}
-
-.text-center {
-  text-align: center;
 }
