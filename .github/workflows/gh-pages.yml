@@ -21,7 +21,7 @@ jobs:
           node-version: '22'
 
       - name: Install Dependencies
-        run: npm install vite@6.2.4
+        run: npm install vite
 
       - name: Build
         run: npm run build
