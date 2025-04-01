@@ -50,6 +50,10 @@ export function validatePaymentsFile(fileContent) {
   const { payments } = fileContent
 
   Object.entries(payments).forEach(([date, dayPayments]) => {
+    if (date.length !== 8) {
+      throw new Error(`Дата (${date}) некорректна.`)
+    }
+
     if (!dayPayments || !Array.isArray(dayPayments)) {
       throw new Error(`Данные за ${date} не являются массивом.`)
     }
