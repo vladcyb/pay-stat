@@ -3,7 +3,7 @@ import path from 'path'
 /** @type {import('vite').UserConfig} */
 export default {
   root: 'public',
-  base: '/pay-stat/',
+  base: '/pay-stat',
   build: {
     outDir: path.resolve(__dirname, 'dist'),
   },
