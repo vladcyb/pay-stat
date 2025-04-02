@@ -68,7 +68,7 @@ export class TotalStatisticsView {
         datasets: [
           {
             data: this.#statistics.map(([, value]) => value),
-            backgroundColor: doughnutColors.map((item) => item),
+            backgroundColor: doughnutColors,
             hoverOffset: 4,
           },
         ],

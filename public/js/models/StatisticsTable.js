@@ -1,6 +1,5 @@
 import { categoryRussian } from '../categories.js'
 import { createTable, createTableCell, createTableRow } from '../lib.js'
-import { doughnutColors } from '../constants/doughnutColors'
 
 export class StatisticsTable {
   #table
