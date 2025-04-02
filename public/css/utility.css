@@ -6,5 +6,6 @@
 }
 
 .selected-row {
-  background: var(--c-selection);
+  background: var(--c-dark-blue);
+  color: white;
 }

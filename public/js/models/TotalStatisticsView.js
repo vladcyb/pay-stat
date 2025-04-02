@@ -62,7 +62,7 @@ export class TotalStatisticsView {
     container.append(statisticsTable.render())
 
     new Chart(doughnut, {
-      type: 'doughnut',
+      type: 'bar',
       data: {
         labels: this.#statistics.map(([category]) => categoryRussian[category]),
         datasets: [
