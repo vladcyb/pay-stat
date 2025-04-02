@@ -1,4 +1,4 @@
-import { $, createDiv, createElement } from '../lib.js'
+import { $, createDiv, createElement, getPercent } from '../lib.js'
 import { StatisticsTable } from './StatisticsTable.js'
 import { Chart } from 'chart.js/auto'
 import { categoryRussian } from '../categories'
@@ -48,7 +48,7 @@ export class TotalStatisticsView {
       statisticsTable.addCategory(
         category,
         value,
-        Math.floor((100 * value) / allTimeCash) + '%'
+        getPercent(value, allTimeCash)
       )
     })
 
@@ -60,7 +60,6 @@ export class TotalStatisticsView {
     doughnutContainer.append(doughnut)
     container.append(doughnutContainer)
     container.append(statisticsTable.render())
-    queueMicrotask(() => statisticsTable.addColors())
 
     new Chart(doughnut, {
       type: 'doughnut',

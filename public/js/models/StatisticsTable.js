@@ -27,17 +27,15 @@ export class StatisticsTable {
     row.title = percent
     const nameCell = this.createTD()
     const valueCell = this.createTD()
+    const percentCell = this.createTD()
     nameCell.innerHTML = `
       <span class="mainStatisticsTable__td-value">
           ${categoryRussian[category]}
       </span>
 `
-    valueCell.innerHTML = `
-
-<span class="mainStatisticsTable__td-value">${value}</span>
-<span class="mainStatisticsTable__td-percent">${percent}</span>
-`
-    row.append(nameCell, valueCell)
+    valueCell.innerHTML = `<span class="mainStatisticsTable__td-value">${value}</span>`
+    percentCell.innerHTML = `<span class="mainStatisticsTable__td-value">${percent}</span>`
+    row.append(nameCell, valueCell, percentCell)
     this.#table.append(row)
   }
 
@@ -47,14 +45,7 @@ export class StatisticsTable {
     const valueCell = this.createTD()
     nameCell.innerText = 'Итого'
     valueCell.innerText = total
-    row.append(nameCell, valueCell)
+    row.append(nameCell, valueCell, this.createTD())
     this.#table.append(row)
-  }
-
-  addColors() {
-    const rows = document.querySelectorAll(`.${this.#className}__tr`)
-    for (let i = 0; i < rows.length - 1; i++) {
-      rows[i].style.backgroundColor = doughnutColors[i]
-    }
   }
 }

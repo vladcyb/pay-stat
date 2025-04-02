@@ -1,3 +1,7 @@
 .dayTable {
   width: 100%;
 }
+
+.dayTable__th {
+  width: 33.333333%;
+}

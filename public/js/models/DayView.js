@@ -1,4 +1,4 @@
-import { createDiv, formatDate } from '../lib.js'
+import { createDiv, formatDate, getPercent } from '../lib.js'
 import { PaymentTable } from './PaymentTable.js'
 import { StatisticsTable } from './StatisticsTable.js'
 
@@ -29,11 +29,7 @@ export class DayView {
 
     const dayTotal = this.#statistics.reduce((acc, curr) => acc + curr[1], 0)
     this.#statistics.forEach(([category, value]) => {
-      statisticsTable.addCategory(
-        category,
-        value,
-        Math.floor((100 * value) / dayTotal) + '%'
-      )
+      statisticsTable.addCategory(category, value, getPercent(value, dayTotal))
     })
     statisticsTable.addTotal(dayTotal)
 

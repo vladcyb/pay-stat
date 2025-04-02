@@ -87,3 +87,7 @@ export function validatePaymentsFile(fileContent) {
     })
   })
 }
+
+export function getPercent(currentValue, totalValue) {
+  return `${Number(((100 * currentValue) / totalValue).toPrecision(2))}%`
+}

@@ -3,14 +3,5 @@
 }
 
 .mainStatisticsTable__td {
-  width: 50%;
-}
-
-.mainStatisticsTable__td-value,
-.mainStatisticsTable__td-percent {
-  background: rgba(255 255 255 / 0.5);
-}
-
-.mainStatisticsTable__td-percent {
-  float: right;
+  width: 33.33333%;
 }
