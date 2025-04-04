@@ -94,16 +94,16 @@ body {
 }
 
 .code-key {
-  color: #3b82f6;
+  color: #fff;
   font-weight: 500;
 }
 
 .code-string {
-  color: #059669;
+  color: #ffff41;
 }
 
 .code-number {
-  color: #d97706;
+  color: #af78ff;
 }
 
 .code-boolean {
